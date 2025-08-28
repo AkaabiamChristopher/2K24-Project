@@ -25,7 +25,7 @@ function Events() {
         <section id="events" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold inline-block">Past Events</h2>
+                    <h2 className="text-3xl font-bold inline-block"></h2>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {events.map((event, index) => (
