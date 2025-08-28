@@ -1,0 +1,56 @@
+.nav-active {
+    color: #4f46e5;
+    border-bottom: 2px solid #4f46e5;
+}
+
+.heading-font {
+    font-family: 'Arial', sans-serif;
+}
+
+.section-title {
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #f6ad55;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.hero {
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+}
+
+.text-primary {
+    color: #1a365d;
+}
+
+.bg-secondary {
+    background-color: #f6ad55;
+}
+
+.text-secondary {
+    color: #f6ad55;
+}
+
+.faculty-card:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
