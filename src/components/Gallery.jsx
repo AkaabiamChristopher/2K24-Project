@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 function Gallery() {
@@ -159,7 +158,8 @@ function Gallery() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const paginatedImages = galleryImages.slice(startIndex, startIndex + itemsPerPage);
 
-    const handlePrevPage = () => {
+    const handlePrevPage = (e) => {
+        e.stopPropagation();
         console.log('Previous button clicked, currentPage:', currentPage);
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
@@ -167,7 +167,8 @@ function Gallery() {
         }
     };
 
-    const handleNextPage = () => {
+    const handleNextPage = (e) => {
+        e.stopPropagation();
         console.log('Next button clicked, currentPage:', currentPage);
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
@@ -175,20 +176,31 @@ function Gallery() {
         }
     };
 
-    const openModal = (image) => {
+    const openModal = (image, e) => {
+        e.stopPropagation();
         console.log('Image clicked:', image.src);
         setSelectedImage(image);
     };
 
-    const closeModal = () => {
+    const closeModal = (e) => {
+        e.stopPropagation();
         console.log('Modal closed');
         setSelectedImage(null);
+    };
+
+    const handleSectionClick = () => {
+        console.log('Gallery section clicked');
+        alert('Gallery section clicked!');
     };
 
     console.log('Rendering page:', currentPage, 'Images:', paginatedImages);
 
     return (
-        <section id="gallery" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <section
+            id="gallery"
+            className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
+            onClick={handleSectionClick}
+        >
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold inline-block">Gallery</h2>
@@ -199,7 +211,7 @@ function Gallery() {
                         <div
                             key={`${image.src}-${index}`}
                             className="gallery-item rounded-lg overflow-hidden shadow-sm hover:shadow-md cursor-pointer"
-                            onClick={() => openModal(image)}
+                            onClick={(e) => openModal(image, e)}
                         >
                             <img
                                 src={image.src}
