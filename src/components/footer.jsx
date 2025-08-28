@@ -6,7 +6,7 @@ function Footer() {
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
-                        <h3 className="text-xl font-bold mb-4">FGCKD SET Graduates</h3>
+                        <h3 className="text-xl font-bold mb-4">FGCKD 2K24 SET</h3>
                         <p className="text-gray-300">Celebrating the achievements of 2K24</p>
                     </div>
                     <div>

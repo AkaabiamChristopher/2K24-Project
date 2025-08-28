@@ -9,14 +9,13 @@ function Events() {
 
         },
         {
-            // title: 'Annual Regional Robotics Competition',
-            // description: 'Witness innovative projects from our Head Boy and team mate at Abuja. Robotics is one of the best entrepreneurs in the world.',
+
             image: 'https://res.cloudinary.com/dsznu7kho/image/upload/v1755186188/JJPJ3690_nhd5by.jpg',
 
         },
         {
-            // title: 'Inter House Competition',
-            // description: 'Experience a vibrant showcase of sports, music, dance, and creativity. It was a great competition.',
+
+
             image: 'https://res.cloudinary.com/dsznu7kho/image/upload/v1755179670/2025_05_08_19_02_IMG_0916_qr051t.jpg',
 
         },
