@@ -1,31 +1,34 @@
-import React from 'react';
+"use client"
 
 function LoginModal({ isOpen, setIsOpen }) {
-    const handleSubmit = e => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const email = e.target.email.value
+        const password = e.target.password.value
 
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
+            alert("Please enter a valid email address.")
+            return
         }
         if (!password || password.length < 6) {
-            alert('Password must be at least 6 characters long.');
-            return;
+            alert("Password must be at least 6 characters long.")
+            return
         }
 
-        console.log('Login attempt:', { email, password });
-        alert(`Logging in with Email: ${email}`);
-        setIsOpen(false);
-        e.target.reset();
-    };
+        console.log("Login attempt:", { email, password })
+        alert(`Logging in with Email: ${email}`)
+        setIsOpen(false)
+        e.target.reset()
+    }
 
-    if (!isOpen) return null;
+    if (!isOpen) return null
 
     return (
-        <div onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-8 max-w-md w-full">
+        <div
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        >
+            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-lg p-8 max-w-md w-full">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-2xl font-bold">Login</h2>
                     <button onClick={() => setIsOpen(false)} className="text-gray-600 hover:text-gray-900">
@@ -68,7 +71,7 @@ function LoginModal({ isOpen, setIsOpen }) {
                 </form>
             </div>
         </div>
-    );
+    )
 }
 
-export default LoginModal;
+export default LoginModal

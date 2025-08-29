@@ -1,36 +1,46 @@
-import React from 'react';
+"use client"
 
 function SignupModal({ isOpen, setIsOpen }) {
-    const handleSubmit = e => {
-        e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const name = e.target.name.value
+        const email = e.target.email.value
+        const password = e.target.password.value
 
         if (!name || name.trim().length < 2) {
-            alert('Please enter a valid name.');
-            return;
+            alert("Please enter a valid name.")
+            return
         }
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
+            alert("Please enter a valid email address.")
+            return
         }
         if (!password || password.length < 6) {
-            alert('Password must be at least 6 characters long.');
-            return;
+            alert("Password must be at least 6 characters long.")
+            return
         }
 
-        console.log('Signup attempt:', { name, email, password });
-        alert(`Signing up with Name: ${name}, Email: ${email}`);
-        setIsOpen(false);
-        e.target.reset();
-    };
+        console.log("Signup attempt:", { name, email, password })
+        alert(`Signing up with Name: ${name}, Email: ${email}`)
+        setIsOpen(false)
+        e.target.reset()
+    }
 
-    if (!isOpen) return null;
+    const handleBackdropClick = (e) => {
+        // Only close if clicking directly on the backdrop, not on child elements
+        if (e.target === e.currentTarget) {
+            setIsOpen(false)
+        }
+    }
+
+    if (!isOpen) return null
 
     return (
-        <div onClick={() => setIsOpen(false)} className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-8 max-w-md w-full">
+        <div
+            onClick={handleBackdropClick}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        >
+            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-lg p-8 max-w-md w-full">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-2xl font-bold">Sign Up</h2>
                     <button onClick={() => setIsOpen(false)} className="text-gray-600 hover:text-gray-900">
@@ -85,7 +95,7 @@ function SignupModal({ isOpen, setIsOpen }) {
                 </form>
             </div>
         </div>
-    );
+    )
 }
 
-export default SignupModal;
+export default SignupModal
